@@ -53,7 +53,7 @@ public class StudentController {
 	 * @return 杩斿洖鍊肩被鍨嬶細 String
 	 */
 	@RequestMapping(value = "/add")
-	public String addStu(String name, String birthday, String age, String score,String sex, Model model) {
+	public String addStu(String name, String birthday, String age, String score,String sex, String tel,String address,Model model) {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		StudentDao dao = (StudentDao) context.getBean("dao");
@@ -63,7 +63,9 @@ public class StudentController {
 		student.setAge(Integer.valueOf(age));
 		student.setScore(Double.parseDouble(score));
 		student.setSex(sex);
-		System.out.println(sex);
+
+		student.setAddress(address);
+		System.out.println(sex+":");
 		model.addAttribute("students", dao.queryAll());
 		boolean result = dao.addStu(student);
 

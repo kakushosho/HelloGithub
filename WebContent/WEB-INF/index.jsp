@@ -12,6 +12,12 @@
 <style type="text/css">
 </style>
 <script type="text/javascript">
+ dd = new Date();
+ document.write("ただ今の時刻は");
+ document.write(dd.getHours() + "時");
+ document.write(dd.getMinutes() + "分です。");
+ </script>
+<script type="text/javascript">
 	function addCheckForm() {
 		var form = document.getElementById('addForm');
 
@@ -110,7 +116,8 @@
 				<td>年龄</td>
 				<td>分数</td>
 				<td>xingbie</td>
-				<td>tel</td>
+
+				<td>address</td>
 			</tr>
 
 			<c:forEach items="${students}" var="student">
@@ -122,7 +129,8 @@
 					<td id="score${student.id}">${student.score}</td>
 					<td id="sex${student.id}"><c:if test="${student.sex eq '1'}">男</c:if>
 						<c:if test="${student.sex eq '0'}">女</c:if></td>
-					<td id="tel${student.id}">${student.tel}</td>
+
+					<td id="address${student.id}">${student.address}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -137,13 +145,17 @@
 
 		<h2 id="edit_title">添加学员</h2>
 		<form id="addForm" action="add" method="post">
-			<input id="addname" type="text" placeholder="姓名" name="name" /> <input
-				id="addbirthday" type="text" placeholder="出生年月" name="birthday" />
-			<input id="addage" type="text" placeholder="年龄" name="age" /> <input
-				id="addscore" type="text" placeholder="分数" name="score" /> <br>
-			<input id="addSex1" type="radio" name="sex" value='1' checked />nan <input
-				id="addSex2" type="radio" name="sex" value='0' />nv <input
-				type="button" value="添加" onClick="addCheckForm()" />
+			<input id="addname" type="text" placeholder="姓名" name="name" />
+			<input id="addbirthday" type="text" placeholder="出生年月" name="birthday" />
+			<input id="addage" type="text" placeholder="年龄" name="age" />
+			 <input	id="addscore" type="text" placeholder="分数" name="score" /> <br>
+
+			 <input id="addaddress" type="text" placeholder="dizhi" name="address" /><br>
+			<input id="addSex1" type="radio" name="sex" value='1' checked />nan
+			<input	id="addSex2" type="radio" name="sex" value='0' />nv
+			<input	type="button" value="添加" onClick="addCheckForm()" />
+
+
 		</form>
 	</div>
 

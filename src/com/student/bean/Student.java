@@ -8,7 +8,7 @@ public class Student {
 	private int age;//学生年齢
 	private double score;//学生成績
 	private String sex;
-	private String tel;
+    private String address;
 
 
 	public String getBirthday() {
@@ -59,11 +59,14 @@ public class Student {
 		this.sex = sex;
 	}
 
-	public String getTel() {
-		return tel;
+
+
+
+	public String getAddress() {
+		return address;
 	}
 
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }
