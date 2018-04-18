@@ -30,7 +30,7 @@ public class StudentDao {
 	 * @return 杩斿洖鍊肩被鍨嬶細 List<Student>
 	 */
 	public List<Student> queryAll() {
-		String sql = "select id,name,birthday,age,score,sex,address from student";
+		String sql = "select id,name,birthday,age,score,sex,address ,classid from student";
 		//灏嗘煡璇㈢粨鏋滄槧灏勫埌Student绫讳腑锛屾坊鍔犲埌list涓紝骞惰繑鍥�
 		return jdbcTemplate.query(sql, new StudentMapper());
 	}
@@ -52,12 +52,12 @@ public class StudentDao {
 	 * @return 杩斿洖鍊肩被鍨嬶細 boolean
 	 */
 	public boolean addStu(Student student) {
-		String sql = "insert into student(id,name,birthday,age,score,sex,address) values(0,?,?,?,?,?,?)";
+		String sql = "insert into student(id,name,birthday,age,score,sex,address,classid) values(0,?,?,?,?,?,?,?)";
 
 		return jdbcTemplate.update(sql,
 				new Object[] { student.getName(), student.getBirthday(),student.getAge(),
-						student.getScore() ,  student.getSex(),student.getAddress()},
-				new int[] { Types.VARCHAR, Types.VARCHAR,Types.VARCHAR, Types.DOUBLE , Types.INTEGER,Types.VARCHAR}) == 1;
+						student.getScore() ,  student.getSex(),student.getAddress(),student.getClassid()},
+				new int[] { Types.VARCHAR, Types.VARCHAR,Types.VARCHAR, Types.DOUBLE , Types.INTEGER,Types.VARCHAR,Types.VARCHAR}) == 1;
 	}
 
 	/**

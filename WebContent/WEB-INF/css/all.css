@@ -18,6 +18,11 @@
   table tr,table td{
     border-bottom: 1px #000 solid;
     line-height: 23px;
+    //background:#ff0080;
+}
+#items tr:nth-child(even) {
+	background: #ff0080;
+}
   }
   #edit_comm{
     width: 500px;

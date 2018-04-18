@@ -9,6 +9,7 @@ public class Student {
 	private double score;//学生成績
 	private String sex;
     private String address;
+  private String classid;
 
 
 	public String getBirthday() {
@@ -68,5 +69,13 @@ public class Student {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getClassid() {
+		return classid;
+	}
+
+	public void setClassid(String classid) {
+		this.classid = classid;
 	}
 }

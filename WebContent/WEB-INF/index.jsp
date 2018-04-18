@@ -10,6 +10,11 @@
 <title>学员管理</title>
 <link rel="stylesheet" type="text/css" href="./css/all.css" />
 <style type="text/css">
+#items tr:nth-child(odd) {
+	background: #80ffff;
+}
+#items tr:nth-child(even) {
+	background: #ff0080;
 </style>
 <script type="text/javascript">
  dd = new Date();
@@ -115,9 +120,10 @@
 				<td>出生年月</td>
 				<td>年龄</td>
 				<td>分数</td>
-				<td>xingbie</td>
+				<td>性别</td>
 
 				<td>address</td>
+				<td>classid</td>
 			</tr>
 
 			<c:forEach items="${students}" var="student">
@@ -131,6 +137,7 @@
 						<c:if test="${student.sex eq '0'}">女</c:if></td>
 
 					<td id="address${student.id}">${student.address}</td>
+					<td id="id${student.id }">${student.classid}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -145,17 +152,33 @@
 
 		<h2 id="edit_title">添加学员</h2>
 		<form id="addForm" action="add" method="post">
+		<select >
+		<option value="请选班级">请选班级</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+
+		</select>
+<br>
 			<input id="addname" type="text" placeholder="姓名" name="name" />
 			<input id="addbirthday" type="text" placeholder="出生年月" name="birthday" />
+<br>
 			<input id="addage" type="text" placeholder="年龄" name="age" />
-			 <input	id="addscore" type="text" placeholder="分数" name="score" /> <br>
+			 <input	id="addscore" type="text" placeholder="分数" name="score" />
+ <br>
 
-			 <input id="addaddress" type="text" placeholder="dizhi" name="address" /><br>
-			<input id="addSex1" type="radio" name="sex" value='1' checked />nan
-			<input	id="addSex2" type="radio" name="sex" value='0' />nv
-			<input	type="button" value="添加" onClick="addCheckForm()" />
-
-
+			 <input id="addaddress" type="text" placeholder="dizhi" name="address" />
+<br>
+			<input id="addSex1" type="radio" name="sex" value='1' checked />男
+			<input	id="addSex2" type="radio" name="sex" value='0' />女
+<br>
+			<label>喜欢科目：</label>
+            <input name='subject' type="checkbox" value="Chinese" /><label>语文</label>
+            <input name='subject' type="checkbox" checked value="Math" /><label>数学</label>
+            <input name='subject' type="checkbox" checked="checked" value="English"/><label>英语</label>
+            <input name='subject' type="checkbox" value="Sport"/><label>体育</label>
+<br>
+<input	type="button" value="添加" onClick="addCheckForm()" />
 		</form>
 	</div>
 
@@ -165,7 +188,7 @@
 			<input id="delid" type="text" placeholder="要删除的id" name="id" /> <input
 				type="button" value="删除学员" onclick="delCheckForm()" />
 		</form>
-
+</div>
 		<h2 id="edit_title">编辑学员</h2>
 		<form id="editForm" action="update" method="post">
 			<input id="editid" type="text" placeholder="要修改的id" id="edit_id"
@@ -176,6 +199,6 @@
 				id="editscore" type="text" placeholder="分数" name="score" /> <input
 				type="button" value="确定修改" onclick="editCheckForm()" />
 		</form>
-	</div>
+
 </body>
 </html>
